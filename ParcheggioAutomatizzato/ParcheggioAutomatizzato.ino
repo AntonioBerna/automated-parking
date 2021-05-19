@@ -21,7 +21,7 @@
 
 // Variabili per il servo motore
 #define SERVO_IN_PIN 3
-#define SERVO_OUT_PIN 5
+#define SERVO_OUT_PIN 6
 int pos_in_min;
 int pos_in_max;
 int pos_out_min;
@@ -59,9 +59,13 @@ void setup() {
 
   pos_in_min = servo_in.read() + 90;
   pos_in_max = servo_in.read();
+  current_in_pos = pos_in_max;
 
   pos_out_min = servo_out.read() + 90;
   pos_out_max = servo_out.read();
+  current_out_pos = pos_out_max;
+
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -109,7 +113,7 @@ void loop() {
       }
     }
   } else if (output == false && old_output == true) {
-    while (current_out_pos > pos_out_min) {
+    while (current_out_pos > pos_out_max) {
       current_out_pos--;
       servo_out.write(current_out_pos);
       delay(10);
