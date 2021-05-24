@@ -1,5 +1,7 @@
 {
     "token": "1750146887:AAEtsFrt0GZrCwEfn3LGNTwOeyB67GDP68c",
     "start_text": "Benvenuto nel Progetto di Maturità 2020/2021 di Antonio Bernardini!",
-    "name_state_button": "Stato Parcheggio"
+    "help_text": "Come si usa @ParcheggioArduinoBot?\n\n1) Cliccando sul bottone \"Info Parcheggio\", il bot invierà delle informazioni relative al parcheggio;",
+    "name_state_button": "Info Parcheggio",
+    "name_help_button": "Aiuto"
 }
