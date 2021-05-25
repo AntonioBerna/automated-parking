@@ -3,5 +3,6 @@
     "start_text": "Benvenuto nel Progetto di Maturità 2020/2021 di Antonio Bernardini!",
     "help_text": "Come si usa @ParcheggioArduinoBot?\n\n1) Cliccando sul bottone \"Info Parcheggio\", il bot invierà delle informazioni relative al parcheggio;",
     "name_state_button": "Info Parcheggio",
-    "name_help_button": "Aiuto"
+    "name_help_button": "Aiuto",
+    "name_reservation_button": "Prenota posto"
 }
