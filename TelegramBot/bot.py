@@ -6,29 +6,32 @@ import telebot
 import json
 
 
-data_user = {}
 parking = Parking()
 user = Reservation()
+data_user = {}
 db = json.load(open("db.json"))
 bot = telebot.TeleBot(db["token"], parse_mode="HTML")
 print("Bot in esecuzione.")
 
 
 @bot.message_handler(commands=["start"])
+@bot.message_handler(func=lambda message: message.text == db["name_start_button"])
 def send_start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    start_button = types.KeyboardButton(db["name_start_button"]) # test
     state_button = types.KeyboardButton(db["name_state_button"])
     help_button = types.KeyboardButton(db["name_help_button"])
     reservation_button = types.KeyboardButton(db["name_reservation_button"])
+    markup.row(start_button) # test
     markup.row(state_button, reservation_button)
     markup.row(help_button)
     bot.send_message(message.chat.id, text=db["start_text"], reply_markup=markup)
 
-# message.text[1:len(message.text)-1] if I decide to use emoji
 @bot.message_handler(commands=["state"])
 @bot.message_handler(func=lambda message: message.text == db["name_state_button"])
 def send_state(message):
-    bot.send_message(message.chat.id, text=f"Informazioni Parcheggio\n\n{parking.getMessage()}")
+    current_seats = parking.getSeats()
+    bot.send_message(message.chat.id, text=f"Informazioni Parcheggio\n\n{parking.getMessage(current_seats)}")
 
 @bot.message_handler(commands=["reservation"])
 @bot.message_handler(func=lambda message: message.text == db["name_reservation_button"])

@@ -2,6 +2,7 @@
     "token": "1750146887:AAEtsFrt0GZrCwEfn3LGNTwOeyB67GDP68c",
     "start_text": "Benvenuto nel Progetto di Maturità 2020/2021 di Antonio Bernardini!",
     "help_text": "<b>Come si usa @ParcheggioArduinoBot?</b>\n\n1) Cliccando sul bottone <b>\"Info Parcheggio\"</b>, il bot invierà delle informazioni relative al parcheggio;\n\n2) Cliccando sul bottone <b>\"Prenota Posto\"</b>, il bot ti consentirà di prenotare un posto all'interno del parcheggio;\n\nInfo Sviluppatore:\n<b>Github:</b> https://github.com/AntonioBerna\n<b>Telegram:</b> @CleverCode",
+    "name_start_button": "Avvia Bot",
     "name_state_button": "Info Parcheggio",
     "name_help_button": "Aiuto",
     "name_reservation_button": "Prenota posto"

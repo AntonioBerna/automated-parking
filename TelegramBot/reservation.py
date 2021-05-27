@@ -11,10 +11,10 @@ class Reservation:
         self.date = None
         self.hour = None
         self.current_date = time.strftime("%d/%m/%Y")
-    
+
     def addReservation(self, chat_id, data_user):
         reservation = json.load(open("reservation.json"))
-        
+
         if chat_id not in reservation.keys():
             reservation[chat_id] = []
         reservation[chat_id].append(data_user)
