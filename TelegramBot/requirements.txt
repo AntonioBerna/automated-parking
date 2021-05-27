@@ -1,2 +1,4 @@
 pyserial==3.5
 pyTelegramBotAPI==3.7.9
+qrcode==6.1
+Pillow==5.4.1
