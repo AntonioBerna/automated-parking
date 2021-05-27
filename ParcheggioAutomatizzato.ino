@@ -19,7 +19,7 @@
 #define TRIGGER_PIN_OUTPUT 12
 #define ECHO_PIN_OUTPUT 13
 
-// Variabili per il servo motore
+// Variabili per i servo motori
 #define SERVO_IN_PIN 3
 #define SERVO_OUT_PIN 6
 int pos_in_min;
@@ -33,7 +33,7 @@ int current_out_pos;
 Servo servo_in;
 Servo servo_out;
 
-int SEATS = 5; // Posti totali del parcheggio
+int seats = 5; // Posti totali del parcheggio
 int range_input = 4;
 int range_output = 5;
 bool old_input = false;
@@ -89,8 +89,8 @@ void loop() {
   bool output = output_distance < range_output;
 
   if (input == true && old_input == false) {
-    if (SEATS > 0) {
-      SEATS--;
+    if (seats > 0) {
+      seats--;
       while (current_in_pos < pos_in_min) {
         current_in_pos++;
         servo_in.write(current_in_pos);
@@ -104,8 +104,8 @@ void loop() {
       delay(10);
     }
   } else if (output == true && old_output == false) {
-    if (SEATS < 5) {
-      SEATS++;
+    if (seats < 5) {
+      seats++;
       while (current_out_pos < pos_out_min) {
         current_out_pos++;
         servo_out.write(current_out_pos);
@@ -122,19 +122,21 @@ void loop() {
   old_input = input;
   old_output = output;
 
-  if (SEATS > 0) {
+  if (seats > 0) {
     digitalWrite(GREEN, HIGH);
     digitalWrite(RED, LOW);
   } else {
     digitalWrite(GREEN, LOW);
     digitalWrite(RED, HIGH);
   }
-
+  
+  Serial.println(seats);
+  
   lcd.clear(); // Pulisce lo schermo
   lcd.setCursor(0, 0); // Va in posizione: colonna 1, riga 1
   lcd.print("Posti");
   lcd.setCursor(0, 1); // Va in posizione: colonna 1, riga 2
-  lcd.print("Liberi: " + String(SEATS));
+  lcd.print("Liberi: " + String(seats));
 
   delay(500);
 }
